@@ -17,3 +17,5 @@
 
 # Ignore specs
 /app/specs.rb
+# Ignore application configuration
+/config/application.yml
