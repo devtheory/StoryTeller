@@ -4,9 +4,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   #To route user upon login
-  #def after_sign_in_path_for(resource)
-  #  something_path
-  #end
+  def after_sign_in_path_for(resource)
+    stories_path
+  end
 
   protected
 

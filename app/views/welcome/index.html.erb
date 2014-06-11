@@ -1,1 +1,298 @@
-<p>index</p>
+
+
+<div class="header alt vert">
+  <div class="container">
+    
+    <h1>StoryTeller</h1>
+      <p class="lead">Write your stories from wherever you are, whenever you want</p>
+      <div>&nbsp;</div>
+      <% unless current_user %>
+      <%= link_to "Sign In", new_user_session_path, class: 'btn btn-default btn-lg' %> or <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-default btn-lg' %>
+      <% end %>
+  </div>
+</div>
+
+<hr>
+
+<div id="sec1" class="blurb">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>A Network of Creators</h1>
+        <p class="lead">Collaborative Writing and an Opinionated Readership</p>
+      </div>
+      <div class="col-md-5">
+        <h1 class="pull-right"><i class="icon-mobile-phone icon-3x"></i> <i class="icon-tablet icon-3x"></i> <i class="icon-laptop icon-3x"></i></h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="featurette" id="sec2">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Just add creativity!</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 col-md-offset-2 text-center">
+        <div class="featurette-item">
+          <%= icon('pencil-square-o fa-fw') %>
+          <h4>Create</h4>
+          <p>Let your mind take over and create fantastic stories from wherever you are!</p>
+        </div>
+      </div>
+      <div class="col-md-2 text-center">
+        <div class="featurette-item">
+          <%= icon('users') %>
+          <h4>Characters</h4>
+          <p>Create characters full of complexity and depth with our easy-to-use interface.</p>
+        </div>
+      </div>
+      <div class="col-md-2 text-center">
+        <div class="featurette-item">
+          <%= icon('pencil') %>
+          <h4>Collaborate</h4>
+          <p>Enroll your own army of collaborators to help bring your story to life!</p>
+        </div>
+      </div>
+      <div class="col-md-2 text-center">
+        <div class="featurette-item">
+          <%= icon('book') %>
+          <h4>Read</h4>
+          <p>Kick back and read user-submitted masterpieces for free!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="callout" id="sec3">
+  <div class="vert">
+    <div class="col-md-12 text-center"><h2>Our Top Writers</h2></div>
+    <div class="col-md-12 text-center">&nbsp;</div>
+    <div class="col-md-8 col-md-offset-2 text-center">
+      <div class="row hidden-xs">
+       <div class="col-sm-2"><img class="img-circle grayscale" src="http://www.gravatar.com/avatar/5c708a2c9d25d1f2e4195ece1f1c684d?s=80"></div>
+       <div class="col-sm-2"><img class="img-circle grayscale" src="http://www.gravatar.com/avatar/3bb38f66f79ca138f318af89fe6b02ec?s=80"></div>
+       <div class="col-sm-2"><img class="img-circle grayscale" src="http://www.gravatar.com/avatar/3423a3e32fda92a5aaed72c7cde3849c?s=80"></div>
+       <div class="col-sm-2"><img class="img-circle grayscale" src="http://www.gravatar.com/avatar/325b6c3c0a75bfdb72822035bb556826?s=80"></div>
+       <div class="col-sm-2"><img class="img-circle grayscale" src="http://www.gravatar.com/avatar/cdd69340b0cfac4c7acb892e3ea7556e?s=80"></div>  
+       <div class="col-sm-2"><img class="img-circle grayscale" src="http://www.gravatar.com/avatar/889778901fb1522dac2846ffe62bd960?s=80"></div>
+     </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="blurb" id="sec4">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Mobile-first</h1>
+        <img src="/assets/example/bg_smartphones.jpg" class="img-responsive">
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="gallery">
+  
+  <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <h5>This Template is Responsive</h5>
+        <h2>Features Galore</h2>
+        <br>
+      </div>
+  </div>
+  
+  <div class="container well well-lg">
+    
+    <div class="row">
+        
+        <div class="col-sm-3">
+          <div class="list-group">
+            <a href="#" class="list-group-item">
+              <span class="text-success"><i class="icon-film"></i></span> Carousel</a>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="list-group">
+            <a href="#" class="list-group-item">
+              <span class="text-success"><i class="icon-folder-close-alt"></i></span> Tabs</a>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="list-group">
+            <a href="#" class="list-group-item">
+              <span class="text-success"><i class="icon-credit-card"></i></span> Modal</a>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="list-group">
+            <a href="#" class="list-group-item">
+              <span class="text-success"><i class="icon-reorder"></i></span> Navigation</a>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="list-group">
+            <a href="#" class="list-group-item">
+              <span class="text-success"><i class="icon-mobile-phone"></i></span> Mobile-first</a>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="list-group">
+            <a href="#" class="list-group-item">
+              <span class="text-success"><i class="icon-align-justify"></i></span> Accordion</a>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="list-group">
+            <a href="#" class="list-group-item">
+              <span class="text-success"><i class="icon-list-alt"></i></span> Panel</a>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="list-group">
+            <a href="#" class="list-group-item">
+              <span class="text-success"><i class="icon-check"></i></span> Form</a>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="list-group">
+            <a href="#" class="list-group-item">
+              <span class="text-success"><i class="icon-table"></i></span> Table</a>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="list-group">
+            <a href="#" class="list-group-item">
+              <span class="text-success"><i class="icon-eye-open"></i></span> Icons</a>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="list-group">
+            <a href="#" class="list-group-item">
+              <span class="text-success"><i class="icon-th"></i></span> Responsive Grid</a>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="list-group">
+            <a href="#" class="list-group-item">
+              <span class="text-success"><i class="icon-font"></i></span> Typography</a>
+          </div>
+        </div>      
+    </div>
+  </div>
+</div> -->
+
+<div class="blurb">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <h1><%= icon('mobile') %> <%= icon('laptop') %> <%= icon('desktop') %></h1>
+      </div>
+      <div class="col-md-7 text-center">
+        <h1>Completely Responsive</h1>
+        <p class="lead text-center">StoryTeller will look great whether accessed from a desktop or mobile device</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="blurb bright">
+  
+  <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <h3>Pricing (per month)</h3>
+        <br>
+      </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-4 ">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center"><h2>Reader (Free)</h2></div>
+        <div class="panel-body">
+          <ul>
+            <li>Unlimited access to read all published stories</li>
+            <li>Rate, Favorite and Substribe to your favorite writers</li>
+            <li>Monthly Digest of the top stories</li>
+          </ul>
+          <div class="row">&nbsp;</div>
+          <hr>
+            <button class="btn btn-lg btn-primary btn-block">Become a Reader</button> 
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center"><h2>Collaborator ($9.99)</h2></div>
+          <div class="panel-body">
+            <ul>
+              <li>Love a story you read here? Help shape it's future by requesting collaborator access!</li>
+              <li>Choose the stories you want to collaborate on and get the credit you deserve.</li>
+              <li>Top collaborators can receive credits and a free upgrade to Showrunner!</li>
+            </ul>
+          <div class="row">&nbsp;</div>
+          <hr>
+            <button class="btn btn-lg btn-primary btn-block">Become a Collaborator</button> 
+           
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-4 ">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center"><h2>Writer ($19.99)</h2></div>
+        <div class="panel-body">
+          <ul>
+            <li>Be the creative force behind your story!</li>
+            <li>Choose who collaborates with you, if anyone.</li>
+            <li>Get instant access to a large viewership and amass followers!</li>
+          </ul>
+          <div class="row">&nbsp;</div>
+          <hr>
+            <button class="btn btn-lg btn-primary btn-block">Become a Writer</button> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="blurb">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <h3>Share what you create</h3>
+        <p class="lead">Everyone is waiting to read you!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 text-center">
+        <ul class="list-inline">
+          <li><%= icon('facebook-square fa-5x') %></li>
+          <li><%= icon('twitter-square fa-5x') %></li>
+          <li><%= icon('google-plus-square fa-5x') %></li>
+          <li><%= icon('pinterest-square fa-5x') %></li>
+        </ul>
+        <hr>
+        <p>Built with <%= icon('heart') %> by <%= link_to "devTheory", about_path %>.<br>Copyright ©2014</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<ul class="nav pull-right scroll-down">
+  <li><a href="#" title="Scroll down"><%= icon('chevron-down fa-2x') %></i></a></li>
+</ul>
+<ul class="nav pull-right scroll-top">
+  <li><a href="#" title="Scroll to top"><%= icon('chevron-up fa-2x') %></a></li>
+</ul>

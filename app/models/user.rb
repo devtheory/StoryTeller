@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :stories
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -11,8 +12,8 @@ class User < ActiveRecord::Base
      user.uid = auth.uid
      user.email = auth.info.email
      user.password = Devise.friendly_token[0,20]
-     user.name = auth.info.name   # assuming the user model has a name
-     user.avatar = auth.info.image # assuming the user model has an image
+     user.name = auth.info.name  
+     user.avatar = auth.info.image 
    end
  end
 
