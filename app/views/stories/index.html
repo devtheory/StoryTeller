@@ -1,4 +1,4 @@
-<h1>My stories</h1>
+<h1>Stories</h1>
 <h6>Story count: <%= @stories.count %> </h6>
 
 <div class="container">
@@ -21,7 +21,7 @@
               <div class="row">
                 <div class="col-xs-9">
                   <h4><%= story.summary %> <span class="label label-default"> by <%= story.user.name %></span></h4>
-                  <h4><small style="font-family:courier,'new courier';" class="text-muted"><%= time_ago_in_words(story.created_at) %>  • <%= link_to "Read More", story, class: 'text-muted' %>
+                  <h4><small style="font-family:courier,'new courier';" class="text-muted">Published <%= time_ago_in_words(story.created_at) %> ago • <%= link_to "Read More", story, class: 'text-muted' %>
                   </small></h4>
                 </div>
                 <div class="col-xs-3"></div>
