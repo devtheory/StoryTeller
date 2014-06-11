@@ -2,16 +2,17 @@ class StoriesController < ApplicationController
 
   def index
     @stories = Story.all
-    #authorize @stories
+    authorize @stories
   end
+  
   def new
     @story = Story.new
-    #authorize @story
+    authorize @story
   end
   
   def create
     @story = current_user.stories.build(story_params)
-    #authorize @story
+    authorize @story
     if @story.save
       flash[:notice] = "Your story was created successfully"
       redirect_to @story
@@ -23,12 +24,12 @@ class StoriesController < ApplicationController
   
   def edit
     @story = current_user.stories.find(params[:id])
-    #authorize @story
+    authorize @story
   end
   
   def update
     @story = current_user.stories.find(params[:d])
-    #authorize @story
+    authorize @story
     if @story.update_attributes(story_params)
       redirect_to @story
     else
@@ -39,13 +40,13 @@ class StoriesController < ApplicationController
   
   def show
     @story = current_user.stories.find(params[:id])
-    #authorize @story
+    authorize @story
   end
   
   def destroy
     @story = current_user.stories.find(:id)
     title = @topic.title
-    #authorize @story
+    authorize @story
     if @story.destroy
       flash[:notice] = "\"#{title}\" was deleted successfully"
       redirect_to @story

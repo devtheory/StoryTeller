@@ -20,5 +20,28 @@
         <li><%= link_to "About", about_path %></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
+              <!-- flash -->
+        <% if flash[:notice] %>
+          <div class="alert-success text-center" id="flash">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
+        <% if flash[:error] %>
+          <li class="alert-danger text-center" id="flash">
+            <%= flash[:error] %>
+          </li>
+        <% end %>
+        <% if flash[:alert] %>
+          <li class="alert-warning text-center" id="flash">
+            <%= flash[:alert] %>
+          </li>
+        <% end %>
     </div><!--/.nav-collapse -->
 </div><!--/.navbar -->
+  <script type="text/javascript">
+  $(document).ready(function(){
+    setTimeout(function(){
+    $('#flash').hide("drop");
+    }, 5000);
+  })
+</script>
