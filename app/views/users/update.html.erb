@@ -1,0 +1,7 @@
+<h1>subscribe</h1>
+
+<%= form_for (current_user) do |f| %>
+<%= f.label :role %>
+<%= f.text_field :role %>
+<%= f.submit "Update Role", class: 'btn btn-success' %>
+<% end %>

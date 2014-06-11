@@ -1,16 +1,15 @@
-<h1>THIS IS ABOUT</h1>
-<button href="#myModal" id="openBtn" data-toggle="modal" class="btn btn-default">Modal</button>
+<button href="#myModal" id="openBtn" data-toggle="modal" class="btn btn-success">Change Your Membership</button>
 
 <div class="modal fade" id="myModal">
 <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3 class="modal-title">Sign up</h3>
+          <h3 class="modal-title">Update Membership</h3>
         </div>
         <div class="modal-body">
       <h5 class="text-center">Hello. Some text here.</h5>
-          FuelUX form here
+          Stripe account options here
           <div class="form-group">
             <input type="button" class="btn btn-warning btn-sm pull-right" value="Reset">
             <div class="clearfix"></div>
@@ -24,10 +23,3 @@
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
-
-
-            <%= form_for (current_user) do |f| %>
-          <%= f.label :role %>
-          <%= f.text_field :role %>
-          <%= f.submit "Update Role", class: 'btn btn-success' %>
-          <% end %>

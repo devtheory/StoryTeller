@@ -1,29 +1,93 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+  <% if current_user.uid.nil? %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <div class="alert-danger">
+      <%= devise_error_messages! %>
+    </div>
+    
+    <br />
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="panel panel-info">
+          <div class="panel-heading"><h3 class="panel-title">Edit <%= resource_name.to_s.humanize %></h3></div>
+          <div class="panel-body">
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="form-group">
+                  <%= f.label :name %>
+                  <%= f.text_field :name, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :email %>
+                  <%= f.email_field :email, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div class="alert-warning">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+            <hr>
+
+            <div class="row">
+              <div class="col-md-8">
+                <div class="form-group ">
+                  <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
+                  <%= f.password_field :password, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                  <%= f.label :password_confirmation %>
+                  <%= f.password_field :password_confirmation, class: 'form-control' %>
+                </div>
+              </div>
+            </div>
+            <hr>
+
+            <div class="row">
+              <div class="col-md-8">
+                <div class='form-group'>
+                  <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
+                  <%= f.password_field :current_password, class: 'form-control' %>
+                </div>
+              <div >
+                <div class="form-group"><%= f.submit "Update", class: 'btn btn-success' %></div>
+              </div>
+              </div>
+            </div>
+
+          </div> <!-- Panel body closes -->
+        </div>
+      <% end %>
+    </div>
+  </div>
+
   <% end %>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">    
+          <h3 class="panel-title">Membership</h3>
+        </div>
+        <div class="panel-body">
+          <div class="well well-sm text-center"><%= current_user.role.capitalize %></div>
+          <%= render partial: "shared/membership" %>
+        </div>
+      </div>
+    </div>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %></div>
-
-  <div><%= f.submit "Update" %></div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
+    <div class="col-md-4">
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h3 class="panel-title">Cancel my account</h3>
+        </div>
+        <div class="panel-body">
+          <p>By deleting the account, you are also deleting all the content associated with it. To downgrade your account to to free, choose "<strong>Change Your Membership</strong>" instead. <%= button_to "Cancel my account", registration_path(resource_name), class: 'btn btn-danger', data: { confirm: "Are you sure?" }, method: :delete %></p>
+        </div>
+      </div>
+    </div>
+  </div><!-- row -->
+</div> <!-- container -->
 <%= link_to "Back", :back %>
