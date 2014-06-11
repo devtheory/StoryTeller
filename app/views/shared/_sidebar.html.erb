@@ -17,13 +17,15 @@
   <nav>
     <ul>
       <li><%= link_to stories_path do %>
-        <i class="fa fa-lg fa-fw fa-book"></i> <span class="menu-item-parent">My Stories</span>
+        <i class="fa fa-lg fa-fw fa-book"></i> <span class="menu-item-parent">Stories</span>
         <% end %>
       </li>
+      <% if policy(Story.new).create? %>
       <li><%= link_to new_story_path do %>
         <span class="menu-item-parent">New Story</span>
         <% end %>
       </li>
+      <% end %>
     </ul>
   </nav>
 </aside>
