@@ -7,58 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">StoryTeller</a>
-    </div>
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><%= link_to "Sign up", new_user_registration_path %></li>
-        <li class="active"><%= link_to "Sign out", sign_out_path %></li>
-        <li><%= link_to "About", about_path %></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div><!--/.nav-collapse -->
-</div><!--/.navbar -->
+<%= render "shared/nav" %>
 
 <% if current_user %>
-<aside id="left-panel">
-  <!-- User logged in -->
-  <div class="login-info">
-    <span> <!-- User image size is adjusted inside CSS, it should stay as it -->  
-      <a href="javascript:void(0);" id="show-shortcut">
-        <%= image_tag(current_user.avatar) %> 
-        <span>
-          <%= current_user.name %>
-        </span>
-        <i class="fa fa-angle-down"></i>
-      </a> 
-   </span>
-  </div>
-
-  <!-- Navigation starts -->
-  <nav>
-    <ul>
-      <li><%= link_to about_path do %>
-        <i class="fa fa-lg fa-fw fa-book"></i> <span class="menu-item-parent">My Stories</span>
-        <% end %>
-      </li>
-    </ul>
-  </nav>
-</aside>
-<% end %>
-  
+  <%= render "shared/sidebar" %>
   <!-- Content starts -->
   <div id="main" role="main">
     <div id="content">
       <%= yield %>
     </div>
   </div>
+<% else %>
+    <%= yield %>
+<% end %>
+  
+  
 
 </body>
 </html>
