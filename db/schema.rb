@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140611185815) do
+ActiveRecord::Schema.define(version: 20140616170027) do
 
   create_table "stories", force: true do |t|
     t.integer  "user_id"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 20140611185815) do
   end
 
   add_index "stories", ["user_id"], name: "index_stories_on_user_id"
+
+  create_table "subscriptions", force: true do |t|
+    t.integer  "user_id"
+    t.string   "subscription_type"
+    t.string   "stripe_id"
+    t.string   "stripe_subscription_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subscriptions", ["user_id"], name: "index_subscriptions_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",       null: false
@@ -46,6 +57,9 @@ ActiveRecord::Schema.define(version: 20140611185815) do
     t.string   "uid"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "stripe_id"
+    t.string   "stripe_plan_id"
+    t.string   "subscription_type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
