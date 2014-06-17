@@ -65,6 +65,7 @@
   </div>
 
   <% end %>
+  <br />
   <div class="row">
     <div class="col-md-4">
       <div class="panel panel-primary">
@@ -73,7 +74,11 @@
         </div>
         <div class="panel-body">
           <div class="well well-sm text-center"><%= current_user.role.capitalize %></div>
-          <%= render partial: "shared/membership" %>
+            <% if current_user.stripe_id.nil? %>
+              <%= link_to "Upgrade Membership", new_subscription_path, class: 'btn btn-success' %>
+            <% else %>
+              <%= link_to "Change Membership", new_subscription_path, class: 'btn btn-success' %>
+            <% end %>
         </div>
       </div>
     </div>
@@ -81,10 +86,10 @@
     <div class="col-md-4">
       <div class="panel panel-danger">
         <div class="panel-heading">
-          <h3 class="panel-title">Cancel my account</h3>
+          <h3 class="panel-title">Delete my account</h3>
         </div>
         <div class="panel-body">
-          <p>By deleting the account, you are also deleting all the content associated with it. To downgrade your account to to free, choose "<strong>Change Your Membership</strong>" instead. <%= button_to "Cancel my account", registration_path(resource_name), class: 'btn btn-danger', data: { confirm: "Are you sure?" }, method: :delete %></p>
+          <p>By deleting the account, you are also deleting all the content associated with it. To downgrade your account to free, choose "<strong>Change Your Membership</strong>" instead. <%= button_to "Delete my account", registration_path(resource_name), class: 'btn btn-danger', data: { confirm: "Are you sure? This action cannot be undone." }, method: :delete %></p>
         </div>
       </div>
     </div>

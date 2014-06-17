@@ -28,7 +28,7 @@ class StoriesController < ApplicationController
   end
   
   def update
-    @story = current_user.stories.find(params[:d])
+    @story = current_user.stories.find(params[:id])
     authorize @story
     if @story.update_attributes(story_params)
       redirect_to @story

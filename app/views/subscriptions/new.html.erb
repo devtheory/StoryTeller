@@ -1,0 +1,84 @@
+      <div >
+        <h3 class="text-center">Choose your monthly plan below</h3>
+          <div class="col-md-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading text-center"><h3 class="panel-title">Reader</h3><small>Free</small></div>
+                <div class="panel-body">
+                  <strong>Access:</strong>
+                  <ul class="list-unstyled">
+                    <br />
+                    <li>Read stories</li>
+                    <br />
+                    <br />
+                    <% if current_user.role?('reader') %>
+                      <div class="well well-sm text-center">Current Plan</div>
+                    <% else %>
+                      <br />
+                      <div class="text-center">
+                        
+                        <%= form_tag subscriptions_path do %>
+                        <%= hidden_field_tag :plan, @stripe_btn_hash[:plan][:reader] %>
+                        <script <%= raw @stripe_btn_hash[:script] %> <%= raw @stripe_btn_hash[:plan][:reader_info] %>></script>
+                        <% end %>
+                      </div>
+                    <% end %>
+                  </ul>
+                </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading text-center"><h3 class="panel-title">Collaborator</h3><small>$9.99 per month</small></div>
+                <div class="panel-body">
+                  <strong>Access:</strong>
+                  <ul class="list-unstyled">
+                    <br />
+                    <li>+<strong>Reader</strong></li>
+                    <br />
+                    <li>Collaborate on stories</li>
+                    <% if current_user.role?('collaborator') %>
+                    <br />
+                      <div class="well well-sm text-center">Current Plan</div>
+                    <% else %>
+                    <br />
+                      <!-- Collaborator plan -->
+                      <div class="text-center">
+                        <%= form_tag subscriptions_path do %>
+                        <%= hidden_field_tag :plan, @stripe_btn_hash[:plan][:collaborator] %>
+                        <script <%= raw @stripe_btn_hash[:script] %> <%= raw @stripe_btn_hash[:plan][:collaborator_info] %>></script>
+                      <% end %>
+                    </div>
+                    <% end %>
+                  </ul>
+                </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading text-center"><h3 class="panel-title">Writer</h3><small>$19.99 per month</small></div>
+                <div class="panel-body">
+                  <strong>Access:</strong>
+                  <ul class="list-unstyled">
+                    <br />
+                    <li>+<strong>Collaborator</strong></li>
+                    <br />
+                    <li>Create stories</li>
+                    <% if current_user.role?('writer') %>
+                    <br />
+                      <div class="well well-sm text-center">Current Plan</div>
+                    <% else %>
+                    <br />
+                      <div class="text-center">
+                        <%= form_tag subscriptions_path do %>
+                        <%= hidden_field_tag :plan, @stripe_btn_hash[:plan][:writer] %>
+                        <script <%= raw @stripe_btn_hash[:script] %> <%= raw@stripe_btn_hash[:plan][:writer_info] %>></script>
+                      <% end %>
+                      </div>
+                    <% end %>
+                  </ul>
+                </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+
+      </div>
