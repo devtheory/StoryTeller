@@ -23,7 +23,7 @@ class ApplicationPolicy
   end
 
   def update?
-    user.present? && (record.user == user)
+    user.present? && (record.user == user || user.collaborating_on.to_s == record.id.to_s)
   end
 
   def edit?

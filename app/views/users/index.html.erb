@@ -1,0 +1,6 @@
+<h3>Add collaborators to any Story below:</h3>
+<ul>
+<% @stories.each do |story| %>
+  <li><%= render partial: "collaborators", locals: { story: story, collaborators: @collaborators } %></li>
+<% end %>
+</ul>
