@@ -2,6 +2,7 @@ class StoriesController < ApplicationController
 
   def index
     @stories = Story.all
+    @collaborators = User.where(role: "writer")
     authorize @stories
   end
   
@@ -23,12 +24,12 @@ class StoriesController < ApplicationController
   end
   
   def edit
-    @story = current_user.stories.find(params[:id])
+    @story = Story.find(params[:id])
     authorize @story
   end
   
   def update
-    @story = current_user.stories.find(params[:id])
+    @story = Story.find(params[:id])
     authorize @story
     if @story.update_attributes(story_params)
       redirect_to @story
@@ -39,13 +40,13 @@ class StoriesController < ApplicationController
   end
   
   def show
-    @story = current_user.stories.find(params[:id])
+    @story = Story.find(params[:id])
     authorize @story
   end
   
   def destroy
     @story = current_user.stories.find(:id)
-    title = @topic.title
+    title = @story.title
     authorize @story
     if @story.destroy
       flash[:notice] = "\"#{title}\" was deleted successfully"
