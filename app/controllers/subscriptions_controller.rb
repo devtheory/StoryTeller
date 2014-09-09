@@ -35,9 +35,9 @@ class SubscriptionsController < ApplicationController
     if params[:plan] == "writer"
       current_user.update_attributes(role: "writer", subscription_type: params[:plan])
     elsif params[:plan] == "collaborator"
-      current_user.update_attributes(role: "collaborator", , subscription_type: params[:plan])
+      current_user.update_attributes(role: "collaborator", subscription_type: params[:plan])
     else
-      current_user.update_attributes(role: "reader", , subscription_type: params[:plan])
+      current_user.update_attributes(role: "reader", subscription_type: params[:plan])
     end
     flash[:notice] = "Your subscription was proccessed successfully. Thanks, #{current_user.name}!"
     redirect_to edit_user_registration_path    
