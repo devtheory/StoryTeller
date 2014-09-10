@@ -1,6 +1,10 @@
 ##StoryTeller: An app for collaborative story creation
 
+<<<<<<< HEAD
 StoryTeller is a Ruby on Rails SaaS application. The application is a social story-telling application that allows writers to share stories with readers and assign collaborators to it. It uses Devise for local and facebook authentication. It uses sendgrid to handle authentication emails. 
+=======
+StoryTeller is a Ruby on Rails application. It uses Devise for local and facebook authentication. It uses sendgrid to handle authentication emails. 
+>>>>>>> e8c8ef1a9ac3bf05eda2f28e325bdc521d359924
 StoryTeller is deployed to Heroku [Here](http://devtheory-storyteller.herokuapp.com)
 
 Setup
